@@ -42,7 +42,7 @@ body{
     position: absolute;
     left: 69%;
     bottom: -23%;
-    animation:correre 1s steps(8)  infinite;
+    animation:correre 1s steps(8)  infinite,correre2 12s infinite;
 }
 
 .muros{
@@ -80,8 +80,7 @@ body{
  
 
 .playerJump{
-    animation: playerJump 1s linear;
-}
+    animation: playerJump 1s linear;}
 
      @keyframes correr {
          0%{
@@ -91,6 +90,14 @@ body{
             background-position: 981px;
          } 
 
+        }
+
+
+@keyframes correre2 {        
+            to{left: -50em;}
+            from {left: 400em;
+           
+           }
         }
 
 @keyframes correre {
@@ -121,20 +128,7 @@ body{
     }
 }
 
-.cactuss
-{
-   position: absolute;
-   width: 200px;
-   height: 100px;
-   bottom: 185px;
-  animation: cactussMovement  2s linear infinite ;
-}
-.cactuss img 
-{
-   max-width: 100%;
-   max-height: 100%;
 
-}
 
 .cactus
 {
