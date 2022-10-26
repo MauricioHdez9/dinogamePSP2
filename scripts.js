@@ -5,6 +5,7 @@ const background = document.getElementById("background");
 const buttonPlayStop = document.getElementById("buttonPlayStop");
 let check= 0;
 let x=0,y=0;
+let gameLoop;
 
 let scoreintervalId
 let score= 0; 
@@ -16,15 +17,17 @@ document.addEventListener("keypress",function(espace) {
 player.addEventListener('animationend',() => {
     player.classList.remove("playerJump");
 });
-
-function stopanimation()
-{
-    cactus.style.animationPlayState = 'paused'
-    player.style.animationPlayState = 'paused'
-    background.style.animationPlayState ='paused'
-    enemigo4.style.animationPlayState = 'paused'
-
+function checkCondition() {
+    if (
+        enemigo4.offsetLeft < (player.offsetLeft + 33)
+        && enemigo4.offsetLeft > player.offsetLeft
+        && (player.offsetTop >= (enemigo4.offsetTop - player.offsetHeight))
+    ) {
+        lostGame();
+    }
+    gameLoop = requestAnimationFrame(checkCondition)
 }
+
 function stopscore()
 {
     clearInterval(scoreintervalId)
